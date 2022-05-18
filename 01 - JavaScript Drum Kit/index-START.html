@@ -7,6 +7,9 @@
 </head>
 <body>
 
+  <!-- KEYCODE.INFO | A GREAT WAY TO FIND OUT THE DATA-KEY FOR ANY OF UR KEYBOARD KEYS -->
+  <!-- DATA ATTRIBUTES ARE WAYS WE AS DEVELOPERS CAN CREATE OUR OWN SORT OF ATTRIBUTES OTHER THEN THE STANDARD 'CLASS' OR 'SRC'-->
+    <!-- WE USE DATA-KEY TO HOOKUP THE KEY DIV TO THE AUDIO FILE -->
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -58,7 +61,9 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+  window.addEventListener('keydown', function (e) {
+    console.log(e.keyCode)
+  })
 </script>
 
 
