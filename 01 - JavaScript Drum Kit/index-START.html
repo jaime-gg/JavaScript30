@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- KEYCODE.INFO | A GREAT WAY TO FIND OUT THE DATA-KEY FOR ANY OF UR KEYBOARD KEYS -->
   <!-- DATA ATTRIBUTES ARE WAYS WE AS DEVELOPERS CAN CREATE OUR OWN SORT OF ATTRIBUTES OTHER THEN THE STANDARD 'CLASS' OR 'SRC'-->
-    <!-- WE USE DATA-KEY TO HOOKUP THE KEY DIV TO THE AUDIO FILE -->
+  <!-- WE USE DATA-KEY TO HOOKUP THE KEY DIV TO THE AUDIO FILE -->
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -60,33 +62,40 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
-<script>
-  window.addEventListener('keydown', function (e) {
-    // console.log(e.keyCode)
-    // console.log(audio)
-    // console.log(key)
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-    if(!audio) return; // STOP THE FUNCTION FROM RUNNING
+  <script>
+    // --- AUDIO FUNCTIONALITY | CALLED WITH THE KEYDOWN EVENT LISTENER -----------------------------------------------------
+    function playSound(e) {
 
-    // FUNCTIONALITY FOR PLAYING THE AUDIO 
-    audio.currentTime = 0; 
-    audio.play(); 
+      // console.log(e.keyCode)
+      // console.log(audio)
+      // console.log(key)
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+      if (!audio) return; // STOP THE FUNCTION FROM RUNNING
 
-    // FUNCTIONALITY FOR CSS ANIMATION 
-    key.classList.add('playing')
-  })
+      // FUNCTIONALITY FOR PLAYING THE AUDIO 
+      audio.currentTime = 0;
+      audio.play();
 
-  function removeTransition(e) {
-    if(e.propertyName !== 'transition') return;  // SKIP IF IT IS NOT A TRANSFORM 
+      // FUNCTIONALITY FOR CSS ANIMATION 
+      key.classList.add('playing')
 
-    this.classList.remove('playing')
-  }
+    }
 
-  const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-</script>
+    // --- ANIMATION  FUNCTIONALITY | CALLED AUTOMATICALLY WHEN TRANSITION IS FOUND AND RESOLVED  ---------------------------
+    function removeTransition(e) {
+      if (e.propertyName !== 'transition') return;  // SKIP IF IT IS NOT A TRANSFORM 
+
+      this.classList.remove('playing')
+    }
+
+    // --- EVENT LISTENERS | QUERY SELECTOR ---------------------------------------------------------------------------------
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // THIS WILL CALL REMOVE TRANSITION
+    window.addEventListener('keydown', playSound); 
+  </script>
 
 
 </body>
+
 </html>
