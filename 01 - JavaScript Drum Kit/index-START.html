@@ -84,7 +84,7 @@
 
     // --- ANIMATION  FUNCTIONALITY | CALLED AUTOMATICALLY WHEN TRANSITION IS FOUND AND RESOLVED  ---------------------------
     function removeTransition(e) {
-      if (e.propertyName !== 'transition') return;  // SKIP IF IT IS NOT A TRANSFORM 
+      if (e.propertyName !== 'transform') return;  // SKIP IF IT IS NOT A TRANSFORM 
 
       this.classList.remove('playing')
     }
