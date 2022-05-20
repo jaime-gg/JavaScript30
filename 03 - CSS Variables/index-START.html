@@ -61,7 +61,11 @@
     const inputs = document.querySelectorAll('.controls input' );
     
     function handleUpdate() {
-      console.log(this.value); 
+      // console.log(this.value); 
+      // DATASET WILL PULL INFO FROM ALL DATA ATTRIBUTES FROM SPECIFIC ELEMENTS
+      const suffix = this.dataset.sizing || ''; 
+      // EACH ELEMENT HAS BEEN NAMED THE SAME AS THEIR CSS VARIABLE, SO TAKE THAT NAME TO SET PROPERTY OF THIS NEW VALUE
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
