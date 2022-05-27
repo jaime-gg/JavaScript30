@@ -28,12 +28,13 @@
     let lastX = 0; 
     let lastY = 0;
     let hue = 0;  
+    let direction = true; 
     //=================================================================
     // DRAWING FUNCTIONALITY 
     function draw(e) {
       if(!isDrawing) return;
-      // CHANGE STROKE COLOR | HUE++ iINCLUDED BELOW
-      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; 
+
+      // CREATE LINE FUNCTIONALITY -------------------------
       ctx.beginPath();
       // START FROM
       ctx.moveTo(lastX, lastY);
@@ -42,8 +43,23 @@
       ctx.stroke(); 
       // RESET LAST X + Y FOR SMOOTH LINE
       [lastX, lastY] = [e.offsetX, e.offsetY];
+      
+      // HUE CHANGE FUNCTIONALITY --------------------------- 
+      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; 
       hue++; 
+      if(hue >= 360) {hue = 0}
+
+      // LINE WIDTH FUNCTIONALITY --------------------------- 
+      if (ctx.lineWidth >=100 || ctx.lineWidth <= 1) {
+        direction = !direction; 
+      }
+      if (direction) {
+        ctx.lineWidth++; 
+      } else {
+        ctx.lineWidth--; 
+      }
     }
+    //=================================================================
     // EVENT LISTENERS FOR MOUSE 
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', () => isDrawing = false)
@@ -52,7 +68,7 @@
       isDrawing = true;
       [lastX, lastY] = [e.offsetX, e.offsetY];
     })
-    //=================================================================F
+    //=================================================================
   </script>
 
   <style>
