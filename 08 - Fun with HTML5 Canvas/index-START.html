@@ -10,26 +10,30 @@
   <canvas id="draw" width="800" height="800"></canvas>
 
   <script>
-    //==================================================
+    //=================================================================
     // CANVAS SETUP 
     const canvas = document.querySelector('#draw');
     const ctx = canvas.getContext('2d'); 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    //==================================================
+    //=================================================================
     // PAINTBRUSH SETUP 
     ctx.strokeStyle = '#DEFAULT';
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    //==================================================
+    ctx.lineWidth = 20; 
+    //=================================================================
     // VARIABLES 
     let isDrawing = false; 
     let lastX = 0; 
-    let lastY = 0; 
-    //==================================================
+    let lastY = 0;
+    let hue = 0;  
+    //=================================================================
     // DRAWING FUNCTIONALITY 
     function draw(e) {
       if(!isDrawing) return;
+      // CHANGE STROKE COLOR | HUE++ iINCLUDED BELOW
+      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; 
       ctx.beginPath();
       // START FROM
       ctx.moveTo(lastX, lastY);
@@ -37,7 +41,8 @@
       ctx.lineTo(e.offsetX, e.offsetY)
       ctx.stroke(); 
       // RESET LAST X + Y FOR SMOOTH LINE
-      [lastX, lastY] = [e.offsetX, e.offsetY]; 
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+      hue++; 
     }
     // EVENT LISTENERS FOR MOUSE 
     canvas.addEventListener('mousemove', draw);
@@ -47,7 +52,7 @@
       isDrawing = true;
       [lastX, lastY] = [e.offsetX, e.offsetY];
     })
-    //================================================== 
+    //=================================================================F
   </script>
 
   <style>
