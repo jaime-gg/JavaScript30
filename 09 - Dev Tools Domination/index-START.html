@@ -32,16 +32,24 @@
 
     // WARNING! ===============================================================
     // Gives a warning icon and standard yellow background. 
-    console.warning('oh no!'); 
+    console.warn('oh no!'); 
 
     // ERROR :| ===============================================================
     // Gives 'x' error icon and red background. 
     console.error('wha'); 
 
     // INFO ===================================================================
+    // This will give an info icon next to the string. 
+    console.info('this is a fun fact!'); 
 
     // TESTING ================================================================
+    // '.Assert' only triggers when provided with a false statement 
+    // A simple form of testing 
+    console.assert(1===1, 'That is wrong!') // Will not trigger anything. 
+    console.assert(1===2, 'That is wrong!') // Will cause an error. 
 
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'Not true!')
     // CLEARING ===============================================================
 
     // VIEWING DOM ELEMENTS ===================================================
