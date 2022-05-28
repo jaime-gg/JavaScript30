@@ -38,11 +38,11 @@
     // Gives 'x' error icon and red background. 
     console.error('wha'); 
 
-    // INFO ===================================================================
+    // INFO =========================================================================
     // This will give an info icon next to the string. 
     console.info('this is a fun fact!'); 
 
-    // TESTING ================================================================
+    // TESTING ======================================================================
     // '.Assert' only triggers when provided with a false statement 
     // A simple form of testing 
     console.assert(1===1, 'That is wrong!') // Will not trigger anything. 
@@ -50,20 +50,22 @@
 
     const p = document.querySelector('p');
     console.assert(p.classList.contains('ouch'), 'Not true!')
-    // CLEARING ===============================================================
+    // CLEARING =====================================================================
     // This will clear the entire console of anything listed above it. 
     console.clear(); 
     
-    // VIEWING DOM ELEMENTS ===================================================
+    // VIEWING DOM ELEMENTS =========================================================
     // Log will return the literal element and it's content.
     // Dir will give back the methods and properties of the content. 
     console.log(p); 
     console.dir(p); 
 
-    // GROUPING TOGETHER ======================================================
-    //
+    // GROUPING TOGETHER ============================================================
+    // Sometimes when looping over information you need multiple logs of info. 
+    // Group multiple .logs w/ .group and .groupCollapsed 
+    // Needs an opening and closing console.group w/ the same group title. 
     dogs.forEach(dog => {
-      console.group(`${dog.name}`)
+      console.groupCollapsed(`${dog.name}`)
         console.log(`this is ${dog.name}`);
         console.log(`${dog.name} is ${dog.age} years old!`);
         console.log(`${dog.name} is ${dog.age * 7} in human years!`);
@@ -71,10 +73,27 @@
     })
 
 
-    // COUNTING ===============================================================
-    //console.
+    // COUNTING =====================================================================
+    // Will simply return the content with the amount of times you have used it. 
+    console.count('Bob'); 
+    console.count('Bob'); 
+    console.count('Bob'); 
+    console.count('Jill');  
+    console.count('Bob'); 
+    console.count('Bob'); 
+    console.count('Bob');
 
-    // TIMING =================================================================
+    // TIMING =======================================================================
+    // Surround a .log or console info with .time and .timeEnd
+    // Must use the same title for both
+    // Returns the time in ms. 
+    console.time('fetching data')
+      fetch('https://api.github.com/users/jaime-gg')
+        .then(data => data.json())
+        .then(data=> {
+          console.log(data)
+        })
+    console.timeEnd('fetching data')
 
   </script>
 </body>
