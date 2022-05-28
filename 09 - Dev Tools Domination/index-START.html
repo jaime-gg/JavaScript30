@@ -51,12 +51,28 @@
     const p = document.querySelector('p');
     console.assert(p.classList.contains('ouch'), 'Not true!')
     // CLEARING ===============================================================
-
+    // This will clear the entire console of anything listed above it. 
+    console.clear(); 
+    
     // VIEWING DOM ELEMENTS ===================================================
+    // Log will return the literal element and it's content.
+    // Dir will give back the methods and properties of the content. 
+    console.log(p); 
+    console.dir(p); 
 
     // GROUPING TOGETHER ======================================================
+    //
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`)
+        console.log(`this is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old!`);
+        console.log(`${dog.name} is ${dog.age * 7} in human years!`);
+      console.groupEnd(`${dog.name}`)
+    })
+
 
     // COUNTING ===============================================================
+    //console.
 
     // TIMING =================================================================
 
