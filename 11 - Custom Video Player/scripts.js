@@ -11,7 +11,11 @@ const progress = player.querySelector('.progress');
 
 // FUNCTIONS ========================================================================
 function togglePlay() {
-
+    if(video.paused) {
+        video.play(); 
+    } else {
+        video.pause(); 
+    }
 }
 
 // ------------------------------------------
@@ -42,4 +46,6 @@ function handleProgress() {
 
 
 // HOOK UP EVEN LISTENERS ===========================================================
+video.addEventListener('click', togglePlay)
+
 
