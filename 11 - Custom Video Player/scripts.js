@@ -21,7 +21,7 @@ function togglePlay() {
 // ------------------------------------------
 
 function updateButton() {
-
+    const icon = this.paused ? '►' : '❚ ❚'; 
 }
 
 // ------------------------------------------
@@ -46,6 +46,10 @@ function handleProgress() {
 
 
 // HOOK UP EVEN LISTENERS ===========================================================
-video.addEventListener('click', togglePlay)
+video.addEventListener('click', togglePlay);
+toggle.addEventListener('click', togglePlay); 
+
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton);
 
 
