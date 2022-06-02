@@ -70,10 +70,6 @@ video.addEventListener('timeupdate', handleProgress);
 progress.addEventListener('click', scrub)
 
 let mousedown = false; 
-progress.addEventListener('mousemove', () => {
-    if(mousedown) {
-        scrub(); 
-    }
-})
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e)); 
 progress.addEventListener('mousedown', () => mousedown = true)
 progress.addEventListener('mouseup', () => mousedown = false)
