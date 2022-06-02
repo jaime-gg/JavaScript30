@@ -18,32 +18,32 @@ function togglePlay() {
     }
 }
 
-// ------------------------------------------
+// ---------------------------------------------------
 
 function updateButton() {
     const icon = this.paused ? '►' : '❚ ❚';
     toggle.textContent = icon; 
 }
 
-// ------------------------------------------
+// ---------------------------------------------------
 
 function skip () {
     video.currentTime += parseFloat(this.dataset.skip)
 }
 
-// ------------------------------------------
+// ---------------------------------------------------
 
 function handleRangeUpdate() {
-
+    video[this.name] = this.value; 
 }
 
-// ------------------------------------------
+// ---------------------------------------------------
 
 function handleProgress() {
 
 }
 
-// ------------------------------------------
+// ---------------------------------------------------
 
 
 // HOOK UP EVEN LISTENERS ===========================================================
@@ -56,4 +56,7 @@ video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 
 // SKIP CONTENT ------------------------------------------
-skipButtons.forEach(button => button.addEventListener('click', skip))
+skipButtons.forEach(button => button.addEventListener('click', skip)); 
+
+// RANGE SLIDERS ------------------------------------------
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate)); 
