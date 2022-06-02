@@ -45,7 +45,10 @@ function handleProgress() {
 }
 
 // ---------------------------------------------------
-
+function scrub(e) {
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration; 
+    video.currentTime = scrubTime; 
+}
 
 // HOOK UP EVEN LISTENERS ===========================================================
 // PLAY VIDEO ------------------------------------------
@@ -64,3 +67,4 @@ ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 
 // PROGRESS BAR ------------------------------------------
 video.addEventListener('timeupdate', handleProgress);
+progress.addEventListener('click', scrub)
