@@ -21,13 +21,14 @@ function togglePlay() {
 // ------------------------------------------
 
 function updateButton() {
-    const icon = this.paused ? '►' : '❚ ❚'; 
+    const icon = this.paused ? '►' : '❚ ❚';
+    toggle.textContent = icon; 
 }
 
 // ------------------------------------------
 
 function skip () {
-
+    video.currentTime += parseFloat(this.dataset.skip)
 }
 
 // ------------------------------------------
@@ -46,10 +47,13 @@ function handleProgress() {
 
 
 // HOOK UP EVEN LISTENERS ===========================================================
+// PLAY VIDEO ------------------------------------------
 video.addEventListener('click', togglePlay);
 toggle.addEventListener('click', togglePlay); 
 
+// UPDATE BUTTON ICON ------------------------------------------
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 
-
+// SKIP CONTENT ------------------------------------------
+skipButtons.forEach(button => button.addEventListener('click', skip))
