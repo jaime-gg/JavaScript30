@@ -10,5 +10,36 @@ const progressBar = player.querySelector('.progress__filled');
 const progress = player.querySelector('.progress');
 
 // FUNCTIONS ========================================================================
+function togglePlay() {
+
+}
+
+// ------------------------------------------
+
+function updateButton() {
+
+}
+
+// ------------------------------------------
+
+function skip () {
+
+}
+
+// ------------------------------------------
+
+function handleRangeUpdate() {
+
+}
+
+// ------------------------------------------
+
+function handleProgress() {
+
+}
+
+// ------------------------------------------
+
 
 // HOOK UP EVEN LISTENERS ===========================================================
+
