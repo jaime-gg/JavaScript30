@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Key Detection</title>
+
   <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </head>
 
@@ -17,6 +18,10 @@
       pressed.push(e.key);
       pressed.splice(-secretCode.length - 1, pressed.length -secretCode.length);  
       
+      if (pressed.join('').includes(secretCode)) {
+        console.log('WOW WOW!');
+        cornify_add();
+      }
     })
   </script>
 </body>
