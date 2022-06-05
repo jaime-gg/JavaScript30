@@ -142,6 +142,8 @@
   </div>
 
   <script>
+    // BOILERPLATE DEBOUNCE FUNCTION
+    // RUN CHECK-SLIDE ONLY EVERY 20 MILISECONDS TO HELP PERFOERMANCE
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function () {
@@ -164,7 +166,8 @@
       console.log(e); 
     }
 
-    window.addEventListener('scroll', checkslide); 
+    // USE DEBOUNCE WHEN WORKING WITH SCROLL FUNCTIONS
+    window.addEventListener('scroll', debounce(checkSlide)); 
   </script>
 
   <style>
