@@ -162,10 +162,14 @@
     // SELECT ALL IMAGES | USE PRE-EXISTING SLIDE-IN CLASS
     const sliderImages = document.querySelectorAll('.slide-in'); 
     
+    // FUNCTION THAT CALCULATES AND EXECUTES WHEN TO SLIDE IN THE IMAGE 
     function checkSlide(e) {
       // console.log(e); 
-      sliderImages.forEach(slideImage => {
-        const slideInAt = (window.scrollY + window.innerHeight) - slideImage.height / 2 ; 
+      sliderImages.forEach(sliderImage => {
+        // HALF WAY THROUGH THE IMAGE 
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2 ; 
+        // BOTTOM OF THE IMAGE
+        const imageBottom = sliderImage.offsetTop + sliderImage.height; 
       })
     }
 
