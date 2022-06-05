@@ -160,10 +160,13 @@
     }
 
     // SELECT ALL IMAGES | USE PRE-EXISTING SLIDE-IN CLASS
-    const sliderImaged = document.querySelectorAll('.slide-in'); 
+    const sliderImages = document.querySelectorAll('.slide-in'); 
     
     function checkSlide(e) {
-      console.log(e); 
+      // console.log(e); 
+      sliderImages.forEach(slideImage => {
+        const slideInAt = (window.scrollY + window.innerHeight) - slideImage.height / 2 ; 
+      })
     }
 
     // USE DEBOUNCE WHEN WORKING WITH SCROLL FUNCTIONS
