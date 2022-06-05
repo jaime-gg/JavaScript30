@@ -170,6 +170,16 @@
         const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2 ; 
         // BOTTOM OF THE IMAGE
         const imageBottom = sliderImage.offsetTop + sliderImage.height; 
+      
+        const isHalfShown = slideInAt > sliderImage.offsetTop; 
+        const isNotScrolledPast = window.scrollY < imageBottom
+
+        // IF STATEMENT THAT ADDS OR REMOVES THE ACTIVE STYLIZATION 
+        if(isHalfShown && isNotScrolledPast) {
+          sliderImage.classList.add('active');
+        } else {
+          sliderImage.classList.remove('active'); 
+        }
       })
     }
 
