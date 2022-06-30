@@ -31,21 +31,17 @@
   const items = JSON.parse(localStorage.getItem('items')) || [];
 
   function addItem(e) {
-    // prevent refresh 
     e.preventDefault();
-    
-    const text = (this.querySelector(`[name=item]`)).value; 
-
+    const text = (this.querySelector('[name=item]')).value;
     const item = {
-      text: text, 
+      text,
       done: false
-    }
+    };
 
-    items.push(item); 
-    localStorage.setItem('items', items); 
-    populateList(items, JSON.stringify(items)); 
-
-    this.reset(); 
+    items.push(item);
+    populateList(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));
+    this.reset();
   }
 
   function populateList(plates = [], platesList) {
@@ -59,9 +55,21 @@
     }).join('');
   }
 
-  addItems.addEventListener('submit', addItem)
+  function toggleDone(e) {
+    if (!e.target.matches('input')) return; 
+    
+    const el = e.target;
+    const index = el.dataset.index;
 
-  populateList(items, itemsList)
+    items[index].done = !items[index].done;
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+  }
+
+  addItems.addEventListener('submit', addItem);
+  itemsList.addEventListener('click', toggleDone);
+
+  populateList(items, itemsList);
 </script>
 
 
