@@ -50,7 +50,7 @@ const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'N
 
 // use regex to target non critical words such as 'a' 'the' & 'an'
 function strip(bandName) {
-  
+  return bandName.replace(/^(a |the |an )/i, '').trim();  
 }
 
 // function to sort the 'bands' by alphabetical order
