@@ -186,6 +186,7 @@
   // pull data out of dom, convert them into numbers, then into mins and secs, then total them. 
   // use map & reduce
   const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+  const seconds = timeNodes.map(node => node.dataset.time); 
   console.log(timeNodes)
 </script>
 
