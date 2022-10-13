@@ -59,6 +59,18 @@
     /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
   </style>
   <script>
+
+    // REQUIRES REAL DATA FROM AN APPLE DEVICE, (PRIMARILY SAMSUNG USER SO THIS IS UNTESTED) // -------------------------------------------
+    // iphone simulator is recommended 
+    // requires starting an interal server that is not recignuzed as secure
+
+    const arrow = document.querySelector('.arrow');
+    const speed = document.querySelector('.speed-value');
+
+    navigator.geolocation.watchPosition((data) => {
+      console.log(data); 
+    })
+
   </script>
 </body>
 </html>
