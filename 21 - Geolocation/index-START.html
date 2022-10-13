@@ -72,6 +72,9 @@
       speed.textContent = Math.round(data.coords.speed);
       
       arrow.style.transform = `rotate(${data.coords.heading}deg)`; 
+    }, (err) => {
+      console.err(err);
+      alert('PERMISSIONS ARE REQUIRED FOR SUCCESSFUL USE')
     })
 
   </script>
