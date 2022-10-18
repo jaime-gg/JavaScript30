@@ -12,17 +12,23 @@
 
       <h1>The Voiceinator 5000</h1>
 
+      <!-- THIS IS OPTIONS MENU FOR DIF VOICES -->
       <select name="voice" id="voices">
         <option value="">Select A Voice</option>
       </select>
 
+      <!-- SPEED OF VOICE -->
       <label for="rate">Rate:</label>
       <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
 
+      <!-- PITCH OF VOICE -->
       <label for="pitch">Pitch:</label>
-
       <input name="pitch" type="range" min="0" max="2" step="0.1">
+
+      <!-- TYPE WHAT YOU WANT TO BE READ -->
       <textarea name="text">Hello! I love JavaScript 👍</textarea>
+
+      <!-- TRIGGER BUTTONS FOR START AND STOP -->
       <button id="stop">Stop!</button>
       <button id="speak">Speak</button>
 
@@ -35,6 +41,10 @@
   const options = document.querySelectorAll('[type="range"], [name="text"]');
   const speakButton = document.querySelector('#speak');
   const stopButton = document.querySelector('#stop');
+
+  // DEFAULT MESSAGE IS SET TO VALUE OF TEXT
+  msg.text = document.querySelector('[name=text"]').value
+
 </script>
 
 </body>
