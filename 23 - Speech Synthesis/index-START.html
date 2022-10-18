@@ -45,13 +45,20 @@
   // DEFAULT MESSAGE IS SET TO VALUE OF TEXT
   msg.text = document.querySelector('[name="text"]').value
 
+  // FUNCTION FOR DROPDOWN MENU 
   function populateVoices() {
     voices = this.getVoices();
     voicesDropdown.innerHTML = voices
       .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang}) </option>`)
       .join(''); 
   }
+
+  function setVoice() {
+
+  }
+
   speechSynthesis.addEventListener('voiceschanged', populateVoices);
+  voicesDropdown.addEventListener('change', setVoice)
 
 </script>
 
