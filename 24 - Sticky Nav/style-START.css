@@ -83,6 +83,11 @@ li.logo a {
   color: black;
 }
 
+/* can not use auto if you wish to use transition, must use max-width */
+.fixed-nav li.logo {
+  max-width: 500px;
+}
+
 nav a {
   text-decoration: none;
   padding: 20px;
