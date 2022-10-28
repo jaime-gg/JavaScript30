@@ -47,10 +47,19 @@
   const divs = document.querySelectorAll('div');
 
   function logText(e) {
+
+    // THIS STOPS BUBBLING
+    e.stopPropagation(); 
+    
     console.log(this.classList.value); 
+
+    // console.log(this); 
+  
   }
 
-  document.body.addEventListener('click', logText); 
+  // document.body.addEventListener('click', logText); 
+  
+  // CAPTURE: TRUE | THIS CAN BE ADDED TO REVERSE THE BUBBLING SEQUENCE 
   divs.forEach(div => div.addEventListener('click', logText))
 
 </script>
