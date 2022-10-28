@@ -45,12 +45,13 @@
 <script>
 
   const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
 
   function logText(e) {
 
     // THIS STOPS BUBBLING
     e.stopPropagation(); 
-    
+
     console.log(this.classList.value); 
 
     // console.log(this); 
@@ -61,6 +62,10 @@
   
   // CAPTURE: TRUE | THIS CAN BE ADDED TO REVERSE THE BUBBLING SEQUENCE 
   divs.forEach(div => div.addEventListener('click', logText))
+
+  button.addEventListener('click', () => {
+    console.log('Click!!!');
+  }); 
 
 </script>
 </body>
