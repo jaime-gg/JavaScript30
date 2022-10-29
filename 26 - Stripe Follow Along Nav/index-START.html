@@ -236,11 +236,26 @@
     this.classList.add('trigger-enter');
     setTimeout(() => this.classList.add('trigger-enter-active'), 150); 
 
+
+    // ESTABLISHING THE SHAPE AND LOCATION OF WHITE DROPDOWN BACKGROUND -----------------
     background.classList.add('open'); 
 
     const dropdown = this.querySelector('.dropdown'); 
     const dropdownCoords = dropdown.getBoundingClientRect(); 
     const navCoords = nav.getBoundingClientRect(); 
+
+    const coords = {
+      height: dropdownCoords.height, 
+      width: dropdownCoords.width,
+      top: dropdownCoords.top, 
+      left: dropdownCoords.left,  
+    }
+
+    background.style.setProperty('', `${}px`);
+    background.style.setProperty('', `${}px`); 
+    background.style.setProperty('', `${}px`);  
+    background.style.setProperty('', `${}px`);  
+
   }
 
   function handleLeave() {
